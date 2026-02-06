@@ -1,0 +1,25 @@
+<?php
+include 'db.php';
+
+if(isset($_GET['service'])) {
+    $service = $_GET['service'];
+}
+?>
+
+<form method="post">
+Name: <input type="text" name="name" required><br><br>
+Service: <input type="text" name="service" value="<?php echo $service; ?>" readonly><br><br>
+<input type="submit" name="book" value="Book Service">
+</form>
+
+<?php
+if(isset($_POST['book'])) {
+    $name = $_POST['name'];
+    $service = $_POST['service'];
+
+    mysqli_query($conn, "INSERT INTO bookings(user_name, service_name)
+    VALUES('$name','$service')");
+
+    echo "Service Booked Successfully!";
+}
+?>

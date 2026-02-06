@@ -1,0 +1,26 @@
+CREATE DATABASE service_booking;
+USE service_booking;
+
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100),
+  email VARCHAR(100),
+  password VARCHAR(100)
+);
+
+CREATE TABLE services (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  service_name VARCHAR(100),
+  price INT
+);
+
+CREATE TABLE bookings (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_name VARCHAR(100),
+  service_name VARCHAR(100)
+);
+
+INSERT INTO services (service_name, price) VALUES
+('AC Repair', 500),
+('Plumbing', 300),
+('Car Wash', 400);

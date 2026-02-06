@@ -1,0 +1,27 @@
+<?php include 'db.php'; ?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Service Booking</title>
+</head>
+<body>
+<h2>Available Services</h2>
+
+<table border="1">
+<tr><th>Service</th><th>Price</th><th>Action</th></tr>
+
+<?php
+$result = mysqli_query($conn, "SELECT * FROM services");
+while($row = mysqli_fetch_assoc($result)) {
+?>
+<tr>
+<td><?php echo $row['service_name']; ?></td>
+<td><?php echo $row['price']; ?></td>
+<td>
+<a href="book.php?service=<?php echo $row['service_name']; ?>">Book</a>
+</td>
+</tr>
+<?php } ?>
+</table>
+</body>
+</html>
